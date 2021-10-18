@@ -31,11 +31,11 @@ int main()
 		static ll divider = 1;
 		if (i % 2 != 0)
 		{
-			sum += -(1 / (double)divider);
+			sum += -(1.0 / (double)divider);
 		}
 		else
 		{
-			sum += 1 / (double)divider;
+			sum += 1.0 / (double)divider;
 		}
 		divider += 2;
 		_pi = 4.0 * sum;
@@ -63,8 +63,8 @@ int main()
 		ll outCircle = 0;
 		for (ull j = 0; j < vec[i]; j++)
 		{
-			ull x = rand() % r + 1;
-			ull y = rand() % r + 1;
+			ull x = rand() % (r + 1);
+			ull y = rand() % (r + 1);
 			if (x * x + y * y <= r * r)
 			{
 				inCircle++;
@@ -76,16 +76,11 @@ int main()
 		}
 		auto t4 = std::chrono::high_resolution_clock::now();
 
-		cout << (double)inCircle / (double)outCircle * 4.0 << "\t";
+		cout << (double)inCircle / ((double)outCircle + (double)inCircle) * 4.0 << "\t";
 		cout << "precision: " << i + 1 << "\tfractions: " << vec[i] << " (" << std::chrono::duration_cast<std::chrono::milliseconds>(t4 - t3).count() << "ms)\n";
 
 	}
 
-	/*cout << "\n";
-	for (int i = 0; i < 1000; i++)
-	{
-		cout << rand() % r + 1 << "\t";
-	}*/
 }
 
 
