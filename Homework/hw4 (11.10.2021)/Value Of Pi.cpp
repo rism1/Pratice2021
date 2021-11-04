@@ -25,10 +25,10 @@ int main()
 	double sum = 0;
 	auto t1 = std::chrono::high_resolution_clock::now();
 
+	ll stage = 1;
+	ll divider = 1;
 	for (ll i = 0; i <= 200000; i++)
 	{
-		static ll stage = 1;
-		static ll divider = 1;
 		if (i % 2 != 0)
 		{
 			sum += -(1.0 / (double)divider);

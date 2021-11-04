@@ -10,8 +10,13 @@ typedef unsigned long long int ll;
 
 int main() {
 	int n, m;
+	cout << "Enter n and m values for pyramid: \n";
 	cin >> n >> m;
-
+	if (n < 0 || m < 0)
+	{
+		cout << "Values must be greater than 0!\n";
+		return 0;
+	}
 	// Top part
 	for (int i = 0; i < n - 1; i++)
 	{
