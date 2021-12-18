@@ -1,9 +1,5 @@
-
 #include <iostream>
-#include <iomanip> 
-
 #include <cmath>
-#include <algorithm>
 #include <vector>
 #include <string>
 #include <string.h>
