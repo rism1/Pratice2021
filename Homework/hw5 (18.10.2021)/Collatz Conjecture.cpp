@@ -1,20 +1,17 @@
+/*
 
+Сиракузская последовательность. Рассмотрим некоторое натуральное число n. Если оно четное, то разделим его на 2, иначе - умножим на 3 и прибавим 1. Будем повторять такие действия, пока не получится 1. 
+	Полученная последовательность называется сиракузская последовательность, а наибольшее из чисел последовательности - её вершиной.
+	Написать программу, вычисляющую для заданного n последовательность, подсчитывающую число шагов в ней и находящую её вершину.
+
+*/
 #include <iostream>
-#include <iomanip> 
 
 #include <cmath>
 #include <algorithm>
-#include <vector>
-#include <string>
-#include <string.h>
-#include <chrono>
-#include <time.h>
-
 
 using namespace std;
 typedef  long long int ll;
-typedef  unsigned long long int ull;
-
 
 int main()
 {
@@ -35,7 +32,7 @@ int main()
 			n++;
 		}
 		m_max = max(m_max, n);
-		count++;
+		++count;
 	}
 	cout << m_max << " " << count;
 }

@@ -1,11 +1,9 @@
-
+/*
+Написать программу, которая в консоли отображает m ромбов из символов звездочка '*' высоты (2n-1) звездочек. 
+*/
 #include <iostream>
-#include <cmath>
-#include <algorithm>
-#include <vector>
-#include <string>
 using namespace std;
-typedef unsigned long long int ll;
+
 
 
 int main() {

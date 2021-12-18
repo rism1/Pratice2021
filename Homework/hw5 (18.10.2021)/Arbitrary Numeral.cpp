@@ -1,19 +1,13 @@
+/*
 
+Перевести заданное пользователем число (целое, положительное) в заданную пользователем систему счисления (от 2  до 16). Для систем счисления более 9 использовать буквы английского алфавита ABCDEF
+
+*/
 #include <iostream>
-#include <iomanip> 
-
-#include <cmath>
-#include <algorithm>
-#include <vector>
-#include <string>
-#include <string.h>
-#include <chrono>
-#include <time.h>
-
 
 using namespace std;
 typedef  long long int ll;
-typedef  unsigned long long int ull;
+
 
 
 int main()
