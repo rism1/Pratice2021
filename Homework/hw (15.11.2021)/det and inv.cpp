@@ -66,7 +66,7 @@ double det(double** matrix, int demension) {
     return abs(res);
 }
 
-void getCofactor(double** mat, double** mat_temp, int i_row, int i_col, int demension)
+void cofactor(double** mat, double** mat_temp, int i_row, int i_col, int demension)
 {
 	int i = 0, j = 0;
 
@@ -102,7 +102,7 @@ void adjoint(double** mat, double** mat_adjoint, int demension)
 	{
 		for (int j = 0; j < demension; j++)
 		{
-			getCofactor(mat, mat_temp, i, j, demension);
+			cofactor(mat, mat_temp, i, j, demension);
 
 			sign = ((i + j) % 2 == 0) ? 1 : -1;
 
