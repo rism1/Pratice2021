@@ -18,14 +18,14 @@ int main()
     
     ll count = 0;
     ll fri_count = 0;
-
+    
     for (int Year = 1901; Year <= 2000; Year++)
     {
         for (int Month = 1; Month <= 12; Month++ )
         {
             for (int Day = 1; Day <= 31; Day++)
             {
-                if ((Month == 2) && (Day == 29))
+                if ((Month == 2) && (Day == 30))
                 {
                     if (!(((Year % 4 == 0) && (Year % 100 != 0)) || (Year % 400 == 0))) 
                     {
@@ -33,7 +33,7 @@ int main()
                     }               
                 }
 
-                if ((Month == 2) && (Day == 30))
+                if ((Month == 2) && (Day == 29))
                 {
                     break;
                 }
