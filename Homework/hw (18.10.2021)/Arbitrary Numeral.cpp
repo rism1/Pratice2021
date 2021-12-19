@@ -4,6 +4,8 @@
 
 */
 #include <iostream>
+#include <string>
+
 
 using namespace std;
 typedef  long long int ll;
@@ -26,20 +28,28 @@ int main()
 		cout << 0;
 		return 0;
 	}
+	string result = "";
 	while (N > 0)
 	{
 		ll remainder = N % target;
 		if (remainder <= 9)
 		{
-			cout << remainder;
+			char char_remainder = '0' + remainder;
+			result += char_remainder;
+			//cout << remainder;
 		}
 		else
 		{
 			char digit = 'A' + remainder - 10;
-			cout << digit;
+			//cout << digit;
+			result += digit;
 		}
 		N /= target;
 	}
+
+	reverse(result.begin(), result.end());
+	cout << result;
+
 }
 
 
