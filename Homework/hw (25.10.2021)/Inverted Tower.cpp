@@ -18,30 +18,27 @@ typedef long long int ll;
 
 int main()
 {
-    double S, n;
+
     cout << "Please enter the number of the apartment: \n";
+    ll S;
     cin >> S;
-    // S = n(n + 1) / 2
-    // n^2 + n - 2S = 0
-    // Positive root: 
-    n = (-1.0 + sqrt(1.0 + 8.0 * S)) / 2.0;
-    
-    ll floor;
-    if (n - (double)((ll)n) == 0.0f)
-    {
-        floor = (ll)n;
+
+    ll S2 = 1;
+    ll i = 1;
+    while ((S2 + (i * i)) <= S) {       
+        S2 += (i * i);
+        ++i;
     }
-    else
-    {
-        floor = (ll)n + 1;
+
+    ll floor = 1 + (i * (i - 1)) / 2;
+
+    while ((S2 + i) <= S) {
+        S2 += i;
+        ++floor;
     }
+
     cout << "Floor: " << floor << "\n";
-    floor -= 1;
-    ll S2 = (floor * (floor + 1)) / 2;
-    cout << "Number on the floor: " << (ll)S - S2;
-
-
-
+    cout << "Number on the apartment from left: " << 1 + S - S2;
 
 }
 
