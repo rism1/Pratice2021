@@ -22,13 +22,22 @@ T** createMatrix(int rows, int columns) {
 
 double det(double** matrix, int demension) {
 
+    double** mat_temp = createMatrix<double>(demension, demension);
+    for (int i = 0; i < demension; i++)
+    {
+        for (int j = 0; j < demension; j++)
+        {
+            mat_temp[i][j] = matrix[i][j];
+        }
+    }
+
     for (int col = 0; col < demension; col++) {
         bool non_zero_row_found = false;
         for (int row = col; row < demension; ++row) {
-            if (matrix[row][col]) {
+            if (mat_temp[row][col]) {
                 if (row != col)
                 {
-                    swap(matrix[row], matrix[col]);
+                    swap(mat_temp[row], mat_temp[col]);
                     
                 }
                 non_zero_row_found = true;
@@ -42,17 +51,17 @@ double det(double** matrix, int demension) {
 
         for (int row = col + 1; row < demension; row++) {
             while (true) {
-                int del = matrix[row][col] / matrix[col][col];
+                int del = mat_temp[row][col] / mat_temp[col][col];
                 for (int j = col; j < demension; j++) {
-                    matrix[row][j] -= del * matrix[col][j];
+                    mat_temp[row][j] -= del * mat_temp[col][j];
                 }
-                if (matrix[row][col] == 0)
+                if (mat_temp[row][col] == 0)
                 {
                     break;
                 }
                 else
                 {
-                    swap(matrix[row], matrix[col]);
+                    swap(mat_temp[row], mat_temp[col]);
                 }
             }
         }
@@ -61,7 +70,7 @@ double det(double** matrix, int demension) {
     int long res = 1;
 
     for (int i = 0; i < demension; ++i) {
-        res *= matrix[i][i];
+        res *= mat_temp[i][i];
     }
     return abs(res);
 }
@@ -69,6 +78,9 @@ double det(double** matrix, int demension) {
 void cofactor(double** mat, double** mat_temp, int i_row, int i_col, int demension)
 {
 	int i = 0, j = 0;
+    
+
+    
 
 	for (int row = 0; row < demension; row++)
 	{
@@ -104,11 +116,15 @@ void adjoint(double** mat, double** mat_adjoint, int demension)
 		{
 			cofactor(mat, mat_temp, i, j, demension);
 
+           
+
 			sign = ((i + j) % 2 == 0) ? 1 : -1;
 
             mat_adjoint[j][i] = (sign) * (det(mat_temp, demension - 1));
 		}
 	}
+
+    
 }
 
 bool inv(double** mat, double** mat_inverse, int demension)
@@ -138,21 +154,24 @@ int main()
     
     double** mat = createMatrix<double>(n, n);
     
-    mat[0][0] = 6;
-    mat[0][1] = 12;
-    mat[0][2] = 2.5;
+    mat[0][0] = 0;
+    mat[0][1] = 0;
+    mat[0][2] = 1;
 
-    mat[1][0] = 10;
-    mat[1][1] = 12;
-    mat[1][2] = 3;
+    mat[1][0] = 0;
+    mat[1][1] = 1;
+    mat[1][2] = 0;
     
-    mat[2][0] = 12;
-    mat[2][1] = 12;
-    mat[2][2] = 34;
+    mat[2][0] = 1;
+    mat[2][1] = 0;
+    mat[2][2] = 0;
+
+    
 
     double** mat_inverse = createMatrix<double>(n, n);
 
-    double det_value = det(mat, n);
+    double det_value = det(mat, n);    
+  
     inv(mat, mat_inverse, n);
 
 
